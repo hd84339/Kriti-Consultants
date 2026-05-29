@@ -7,7 +7,7 @@ import ContactForm from '../../components/ui/ContactForm'
 
 export default function ContactSection() {
   return (
-    <section className="py-28 px-[4%] border-t border-gold/15 bg-[#FAF8F5]" id="contact">
+    <section className="py-28 px-[4%] bg-[#FAF8F5]" id="contact">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <motion.div variants={slideLeft} initial="hidden" whileInView="visible" viewport={viewportOptions}>
           <SectionLabel>Get In Touch</SectionLabel>

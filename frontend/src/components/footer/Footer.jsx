@@ -4,7 +4,7 @@ import { BRAND, SERVICES } from '../../constants'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-2 border-t border-gold/10">
+    <footer className="bg-navy-2">
       <div className="max-w-7xl mx-auto px-[4%] pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
@@ -15,7 +15,7 @@ export default function Footer() {
           <div>
             <h5 className="text-white/40 text-xs tracking-widest uppercase mb-5">Quick Links</h5>
             <ul className="space-y-3">
-              {[{label:'Home',to:'/'},{label:'About',to:'/about'},{label:'Services',to:'/services'},{label:'Contact',to:'/contact'}].map((l) => (
+              {[{label:'Home',to:'/'},{label:'About',to:'/about'},{label:'Services',to:'/services'},{label:'Blog',to:'/blog'},{label:'Contact',to:'/contact'}].map((l) => (
                 <li key={l.label}><Link to={l.to} className="text-white/50 hover:text-gold text-sm transition-colors">{l.label}</Link></li>
               ))}
             </ul>
