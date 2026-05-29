@@ -1,3 +1,12 @@
+import sopImg from '../assets/images/sop_development.png'
+import kraImg from '../assets/images/kra_kpi.png'
+import pmsImg from '../assets/images/pms_implementation.png'
+import auditImg from '../assets/images/business_audit.png'
+import aiImg from '../assets/images/ai_workflow.png'
+import retainershipImg from '../assets/images/retainership_consulting.png'
+import visionImg from '../assets/images/vision_mission.png'
+import vastuImg from '../assets/images/vastu_brand.png'
+
 export const BRAND = {
   name: 'Kriti Business Consultants',
   shortName: 'Kriti Consultants',
@@ -17,14 +26,14 @@ export const NAV_LINKS = [
 ]
 
 export const SERVICES = [
-  { icon: '📋', title: 'SOP Development', desc: 'Comprehensive process documentation that empowers teams to operate independently at peak efficiency.', slug: 'sop-development' },
-  { icon: '🎯', title: 'KRA / KPI Frameworks', desc: 'Crystal-clear accountability matrices linking individual performance to business-wide strategic outcomes.', slug: 'kra-kpi' },
-  { icon: '📊', title: 'PMS Implementation', desc: 'Performance management systems that transform annual reviews into continuous growth conversations.', slug: 'pms' },
-  { icon: '🔍', title: 'Business Health Audits', desc: 'Deep diagnostic assessment of your operations, culture, systems, and strategic positioning.', slug: 'business-audit' },
-  { icon: '🤖', title: 'AI Workflow Optimization', desc: 'Intelligent automation of repetitive processes, freeing your team for high-value strategic work.', slug: 'ai-workflow' },
-  { icon: '🤝', title: 'Retainership Consulting', desc: 'Ongoing strategic advisory support as an embedded thought partner for your leadership team.', slug: 'retainership' },
-  { icon: '🧭', title: 'Vision & Mission Alignment', desc: 'Crystallize your organizational north star and align every person, process, and policy toward it.', slug: 'vision-mission' },
-  { icon: '🏛️', title: 'Vastu & Brand Alignment', desc: 'Harmonize your physical workspace and brand identity to amplify energy, focus, and team culture.', slug: 'vastu-brand' },
+  { icon: '📋', title: 'SOP Development', desc: 'Comprehensive process documentation that empowers teams to operate independently at peak efficiency.', slug: 'sop-development', image: sopImg },
+  { icon: '🎯', title: 'KRA / KPI Frameworks', desc: 'Crystal-clear accountability matrices linking individual performance to business-wide strategic outcomes.', slug: 'kra-kpi', image: kraImg },
+  { icon: '📊', title: 'PMS Implementation', desc: 'Performance management systems that transform annual reviews into continuous growth conversations.', slug: 'pms', image: pmsImg },
+  { icon: '🔍', title: 'Business Health Audits', desc: 'Deep diagnostic assessment of your operations, culture, systems, and strategic positioning.', slug: 'business-audit', image: auditImg },
+  { icon: '🤖', title: 'AI Workflow Optimization', desc: 'Intelligent automation of repetitive processes, freeing your team for high-value strategic work.', slug: 'ai-workflow', image: aiImg },
+  { icon: '🤝', title: 'Retainership Consulting', desc: 'Ongoing strategic advisory support as an embedded thought partner for your leadership team.', slug: 'retainership', image: retainershipImg },
+  { icon: '🧭', title: 'Vision & Mission Alignment', desc: 'Crystallize your organizational north star and align every person, process, and policy toward it.', slug: 'vision-mission', image: visionImg },
+  { icon: '🏛️', title: 'Vastu & Brand Alignment', desc: 'Harmonize your physical workspace and brand identity to amplify energy, focus, and team culture.', slug: 'vastu-brand', image: vastuImg },
 ]
 
 export const PROCESS_STEPS = [

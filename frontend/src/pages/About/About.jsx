@@ -43,8 +43,8 @@ export default function About() {
             <h1 className="font-serif font-bold leading-tight tracking-tight mb-6" style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)' }}>
               We Are Organizational <em className="text-gold not-italic">Engineers</em>
             </h1>
-            <p className="text-white/70 text-lg leading-relaxed max-w-2xl mx-auto font-light">
-              Kriti Business Consultants was founded on a singular belief: that every chaotic, founder-dependent business can be transformed into a scalable, systems-driven enterprise — with the right frameworks and the right guidance.
+            <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto font-light">
+              Kriti Business Consultants is a premier strategic management firm dedicated to transforming businesses from &ldquo;hustle-driven&rdquo; operations into organized &ldquo;powerhouse&rdquo; entities. Led by Savitri Shah &amp; Varun Pershad, the firm specializes in organizational engineering. We bridge the gap between visionary goals and operational reality through robust HR frameworks, process optimization, and strategic alignment.
             </p>
           </motion.div>
         </div>

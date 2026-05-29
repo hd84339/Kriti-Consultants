@@ -4,10 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import useNavbarScroll from '../../hooks/useNavbarScroll'
 import { NAV_LINKS } from '../../constants'
+import { useContactModal } from '../../context/ContactModalContext'
 
 export default function Navbar() {
   const scrolled = useNavbarScroll(60)
   const [open, setOpen] = useState(false)
+  const { openModal } = useContactModal()
+
   return (
     <>
       <motion.nav initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }}
@@ -21,8 +24,8 @@ export default function Navbar() {
           ))}
         </ul>
         <div className="hidden lg:flex items-center gap-3">
-          <Link to="/contact"><button className="btn-outline text-xs py-2 px-4">Free Audit</button></Link>
-          <Link to="/contact"><button className="btn-gold text-xs py-2 px-4">Book Consultation</button></Link>
+          <button onClick={() => openModal()} className="btn-outline text-xs py-2 px-4">Free Audit</button>
+          <button onClick={() => openModal()} className="btn-gold text-xs py-2 px-4">Book Consultation</button>
         </div>
         <button className="lg:hidden text-white/70 hover:text-gold" onClick={() => setOpen(!open)}>
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -37,8 +40,8 @@ export default function Navbar() {
                 <NavLink key={l.label} to={l.href} onClick={() => setOpen(false)} className="text-white/70 hover:text-gold text-base">{l.label}</NavLink>
               ))}
               <div className="flex flex-col gap-3 pt-2 border-t border-gold/10">
-                <Link to="/contact" onClick={() => setOpen(false)}><button className="btn-outline w-full text-sm">Free Audit</button></Link>
-                <Link to="/contact" onClick={() => setOpen(false)}><button className="btn-gold w-full text-sm">Book Consultation</button></Link>
+                <button onClick={() => { setOpen(false); openModal(); }} className="btn-outline w-full text-sm">Free Audit</button>
+                <button onClick={() => { setOpen(false); openModal(); }} className="btn-gold w-full text-sm">Book Consultation</button>
               </div>
             </div>
           </motion.div>

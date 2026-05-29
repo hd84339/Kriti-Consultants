@@ -50,7 +50,11 @@ export default function Footer() {
         </div>
         <div className="pt-8 border-t border-gold/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/25 text-xs">© {new Date().getFullYear()} Kriti Business Consultants. All rights reserved.</p>
-          <p className="text-white/25 text-xs">Crafted with strategic precision.</p>
+          <div className="text-white/25 text-xs flex flex-wrap items-center gap-2 justify-center sm:justify-end">
+            <span>Made by <a href="https://webvisionsoftech.com" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-gold transition-colors duration-300 font-medium">webvisionsoftech.com</a></span>
+            <span className="text-white/10 select-none">•</span>
+            <span>Engineered by <a href="https://www.linkedin.com/in/harsh-dubey-498498256/" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-gold transition-colors duration-300 font-medium">Harsh Dubey</a></span>
+          </div>
         </div>
       </div>
     </footer>

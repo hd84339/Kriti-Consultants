@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom'
 import { staggerContainer, staggerItem, slideRight } from '../../animations/variants'
 import DashboardVisual from './DashboardVisual'
 import heroBg from '../../assets/hero-team-bg.png'
+import { useContactModal } from '../../context/ContactModalContext'
 
 export default function HeroSection() {
   const particlesRef = useRef(null)
+  const { openModal } = useContactModal()
+
   useEffect(() => {
     const container = particlesRef.current
     if (!container) return
@@ -54,8 +57,8 @@ export default function HeroSection() {
             We help founders transform operational chaos into scalable business frameworks through SOPs, KPI systems, HR engineering, and AI-powered optimization.
           </motion.p>
           <motion.div variants={staggerItem} className="flex flex-wrap gap-4 mb-12">
-            <Link to="/contact"><button className="btn-primary">Get Free Audit</button></Link>
-            <Link to="/contact"><button className="btn-secondary">Book Strategy Call</button></Link>
+            <button onClick={() => openModal()} className="btn-primary">Get Free Audit</button>
+            <button onClick={() => openModal()} className="btn-secondary">Book Strategy Call</button>
           </motion.div>
           <motion.div variants={staggerItem} className="flex gap-10">
             {[{val:'20+',label:'Years Expertise'},{val:'100+',label:'Businesses Guided'},{val:'98%',label:'Client Retention'}].map((s) => (

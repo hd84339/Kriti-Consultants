@@ -4,15 +4,20 @@ import ScrollProgress from './components/common/ScrollProgress'
 import CustomCursor from './components/common/CustomCursor'
 import Loader from './components/common/Loader'
 import WhatsAppButton from './components/common/WhatsAppButton'
+import { ContactModalProvider } from './context/ContactModalContext'
+import ContactModal from './components/ui/ContactModal'
 
 function App() {
   return (
     <BrowserRouter>
-      <Loader />
-      <ScrollProgress />
-      <CustomCursor />
-      <AppRoutes />
-      <WhatsAppButton />
+      <ContactModalProvider>
+        <Loader />
+        <ScrollProgress />
+        <CustomCursor />
+        <AppRoutes />
+        <WhatsAppButton />
+        <ContactModal />
+      </ContactModalProvider>
     </BrowserRouter>
   )
 }
