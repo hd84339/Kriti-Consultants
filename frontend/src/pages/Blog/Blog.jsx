@@ -43,7 +43,7 @@ export default function Blog() {
   return (
     <>
       {/* 1. HERO SECTION (Dark theme - #0B1120) */}
-      <section className="pt-48 pb-32 px-[4%] relative overflow-hidden bg-[#0B1120] min-h-[50vh] flex items-center bg-dots-dark">
+      <section className="pt-24 md:pt-48 pb-16 md:pb-32 px-[4%] relative overflow-hidden bg-[#0B1120] min-h-[50vh] flex items-center bg-dots-dark">
         {/* Glowing background blobs */}
         <div className="absolute top-1/4 left-1/10 w-80 h-80 bg-gold/10 rounded-full blur-[120px] pointer-events-none z-0" />
         <div className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-blue-500/10 rounded-full blur-[130px] pointer-events-none z-0" />

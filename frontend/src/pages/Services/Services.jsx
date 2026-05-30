@@ -12,7 +12,7 @@ export default function Services() {
 
   return (
     <>
-      <section className="pt-40 pb-24 px-[4%]">
+      <section className="pt-24 md:pt-40 pb-12 md:pb-24 px-[4%]">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div variants={fadeUp} initial="hidden" animate="visible">
             <SectionLabel centered>Our Services</SectionLabel>

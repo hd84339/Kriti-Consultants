@@ -15,7 +15,7 @@ const values = [
 export default function About() {
   return (
     <>
-      <section className="pt-48 pb-32 px-[4%] relative overflow-hidden bg-[#0B1120] min-h-[55vh] flex items-center">
+      <section className="pt-24 md:pt-48 pb-16 md:pb-32 px-[4%] relative overflow-hidden bg-[#0B1120] min-h-[55vh] flex items-center">
         {/* Background Image Overlay */}
         <div 
           className="absolute inset-0 z-0 pointer-events-none" 

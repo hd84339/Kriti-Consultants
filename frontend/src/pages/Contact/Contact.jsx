@@ -6,7 +6,7 @@ import SectionLabel from '../../components/ui/SectionLabel'
 export default function Contact() {
   return (
     <>
-      <section className="pt-48 pb-28 px-[4%] relative overflow-hidden bg-[#0B1120] bg-dots-dark">
+      <section className="pt-24 md:pt-48 pb-14 md:pb-28 px-[4%] relative overflow-hidden bg-[#0B1120] bg-dots-dark">
         {/* Glowing background blobs */}
         <div className="absolute top-12 left-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-12 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
