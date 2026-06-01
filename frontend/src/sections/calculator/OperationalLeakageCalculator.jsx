@@ -1,91 +1,153 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { fadeUp, viewportOptions } from '../../animations/variants'
 import SectionLabel from '../../components/ui/SectionLabel'
 
 export default function OperationalLeakageCalculator() {
-  const [employees, setEmployees] = useState(25)
-  const [salary, setSalary] = useState(40000)
-  const [hoursLost, setHoursLost] = useState(5)
-  const [leakage, setLeakage] = useState(0)
+  const [revenue, setRevenue] = useState(1500000)
+  const [friction, setFriction] = useState(45)
 
-  useEffect(() => {
-    const hourlyRate = salary / 160
-    const annualLeakage = hourlyRate * hoursLost * 52 * employees
-    setLeakage(Math.round(annualLeakage))
-  }, [employees, salary, hoursLost])
+  const monthlyLeak = Math.round(revenue * (friction / 100))
+  const annualLeakage = monthlyLeak * 12
+
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      maximumFractionDigits: 0,
+    }).format(value)
+  }
+
+  const handleRevenueChange = (e) => {
+    const val = e.target.value.replace(/[^0-9]/g, '')
+    setRevenue(val ? Number(val) : 0)
+  }
+
+  const handleFrictionChange = (e) => {
+    const val = e.target.value.replace(/[^0-9]/g, '')
+    setFriction(val ? Number(val) : 0)
+  }
 
   return (
-    <section className="py-28 px-[4%] bg-[#0B1120] relative overflow-hidden" id="calculator">
+    <section className="py-24 md:py-28 px-4 md:px-[4%] bg-[#0B1120] relative overflow-hidden w-full max-w-[100vw]" id="calculator">
       <div className="absolute inset-0 bg-dots-dark opacity-30 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[120px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] aspect-square bg-red-600/10 rounded-full blur-[100px] pointer-events-none z-0" />
       
-      <div className="max-w-5xl mx-auto relative z-20">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions} className="text-center mb-16">
+      <div className="max-w-5xl mx-auto relative z-20 w-full">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions} className="text-center mb-12 md:mb-16">
           <SectionLabel centered>Reality Check</SectionLabel>
-          <h2 className="section-heading text-white">Calculate Your Annual<br /><span className="text-red-500">Operational Leakage</span></h2>
-          <p className="text-white/60 max-w-2xl mx-auto mt-4 text-lg font-light">
-            Without systems, your team wastes time waiting for approvals, searching for information, or redoing work. See what that costs you every year.
+          <h2 className="section-heading text-white">Operational <span className="text-red-500">Leakage Calculator</span></h2>
+          <p className="text-white/60 max-w-2xl mx-auto mt-4 text-base md:text-lg font-light">
+            Calculate the invisible cost of operating without documented SOPs, clear KPIs, and robust business systems.
           </p>
         </motion.div>
 
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions} className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl p-8 md:p-12 shadow-2xl">
-          <div className="grid lg:grid-cols-[1fr_auto] gap-12 items-center">
-            <div className="space-y-10">
-              <div>
-                <label className="block text-white/70 text-sm font-semibold mb-4 tracking-wide">Number of Employees</label>
-                <input 
-                  type="range" min="1" max="200" value={employees} onChange={(e) => setEmployees(Number(e.target.value))}
-                  className="w-full h-1.5 bg-white/20 rounded-lg appearance-none cursor-pointer accent-gold"
-                />
-                <div className="flex justify-between text-white/40 text-xs mt-3">
-                  <span>1</span>
-                  <span className="text-white text-xl font-bold bg-white/10 px-4 py-1 rounded-md">{employees}</span>
-                  <span>200</span>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions} className="bg-[#111827]/80 border border-white/10 backdrop-blur-xl rounded-2xl overflow-hidden shadow-2xl w-full">
+          <div className="flex flex-col w-full">
+            
+            {/* Desktop Header */}
+            <div className="hidden md:flex items-center border-b border-white/10 bg-white/[0.02] w-full">
+              <div className="w-[35%] py-5 px-8 text-white/70 font-semibold text-sm tracking-wide">Financial Performance Component</div>
+              <div className="w-[30%] py-5 px-8 text-white/70 font-semibold text-sm tracking-wide">Impact Amount</div>
+              <div className="w-[35%] py-5 px-8 text-white/70 font-semibold text-sm tracking-wide">Contextual Analysis</div>
+            </div>
+
+            {/* Row 1: Gross Monthly Revenue */}
+            <div className="flex flex-col md:flex-row md:items-center border-b border-white/5 py-6 px-5 md:px-8 hover:bg-white/[0.02] transition-colors group gap-3 md:gap-0 w-full">
+              <div className="w-full md:w-[35%]">
+                <div className="md:hidden text-white/40 text-[10px] font-bold mb-1 uppercase tracking-widest">Component</div>
+                <div className="text-white/90 font-medium text-lg md:text-base">Gross Monthly Revenue</div>
+              </div>
+              <div className="w-full md:w-[30%]">
+                <div className="md:hidden text-white/40 text-[10px] font-bold mb-1 uppercase tracking-widest">Impact Amount</div>
+                <div className="relative flex items-center md:max-w-[200px] w-full">
+                  <span className="absolute left-4 text-white/50 font-medium">₹</span>
+                  <input 
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    value={revenue || ''}
+                    onChange={handleRevenueChange}
+                    className="w-full bg-white/5 group-hover:bg-white/10 border border-white/10 rounded-lg py-3 md:py-2.5 pl-9 pr-4 text-white font-medium focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all text-lg md:text-base"
+                  />
                 </div>
               </div>
+              <div className="w-full md:w-[35%]">
+                <div className="md:hidden text-white/40 text-[10px] font-bold mb-1 uppercase tracking-widest">Analysis</div>
+                <div className="text-white/50 text-sm md:pr-4">Baseline operational income</div>
+              </div>
+            </div>
 
-              <div>
-                <label className="block text-white/70 text-sm font-semibold mb-4 tracking-wide">Average Monthly Salary (₹)</label>
-                <input 
-                  type="range" min="15000" max="200000" step="5000" value={salary} onChange={(e) => setSalary(Number(e.target.value))}
-                  className="w-full h-1.5 bg-white/20 rounded-lg appearance-none cursor-pointer accent-gold"
-                />
-                <div className="flex justify-between text-white/40 text-xs mt-3">
-                  <span>₹15k</span>
-                  <span className="text-white text-xl font-bold bg-white/10 px-4 py-1 rounded-md">₹{salary.toLocaleString()}</span>
-                  <span>₹200k</span>
+            {/* Row 2: Estimated Team Friction */}
+            <div className="flex flex-col md:flex-row md:items-center border-b border-white/5 py-6 px-5 md:px-8 hover:bg-white/[0.02] transition-colors group gap-3 md:gap-0 w-full">
+              <div className="w-full md:w-[35%]">
+                <div className="md:hidden text-white/40 text-[10px] font-bold mb-1 uppercase tracking-widest">Component</div>
+                <div className="text-white/90 font-medium text-lg md:text-base">Estimated Team Friction</div>
+              </div>
+              <div className="w-full md:w-[30%]">
+                <div className="md:hidden text-white/40 text-[10px] font-bold mb-1 uppercase tracking-widest">Impact Amount</div>
+                <div className="relative flex items-center md:max-w-[200px] w-full">
+                  <input 
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    value={friction || ''}
+                    onChange={handleFrictionChange}
+                    className="w-full bg-white/5 group-hover:bg-white/10 border border-white/10 rounded-lg py-3 md:py-2.5 pl-4 pr-10 text-white font-medium focus:outline-none focus:border-red-500/50 focus:ring-1 focus:ring-red-500/50 transition-all text-lg md:text-base"
+                  />
+                  <span className="absolute right-4 text-white/50 font-medium">%</span>
                 </div>
               </div>
+              <div className="w-full md:w-[35%]">
+                <div className="md:hidden text-white/40 text-[10px] font-bold mb-1 uppercase tracking-widest">Analysis</div>
+                <div className="text-white/50 text-sm md:pr-4">Invisible output gap</div>
+              </div>
+            </div>
 
-              <div>
-                <label className="block text-white/70 text-sm font-semibold mb-4 tracking-wide">Hours Lost Weekly (Per Employee)</label>
-                <input 
-                  type="range" min="1" max="20" value={hoursLost} onChange={(e) => setHoursLost(Number(e.target.value))}
-                  className="w-full h-1.5 bg-white/20 rounded-lg appearance-none cursor-pointer accent-red-500"
-                />
-                <div className="flex justify-between text-white/40 text-xs mt-3">
-                  <span>1 hr</span>
-                  <span className="text-red-400 text-xl font-bold bg-red-500/10 px-4 py-1 rounded-md border border-red-500/20">{hoursLost} hrs</span>
-                  <span>20 hrs</span>
+            {/* Row 3: Monthly Capital Leak */}
+            <div className="flex flex-col md:flex-row md:items-center border-b border-white/5 py-6 px-5 md:px-8 hover:bg-white/[0.02] transition-colors bg-white/[0.01] gap-2 md:gap-0 w-full">
+              <div className="w-full md:w-[35%]">
+                <div className="md:hidden text-white/40 text-[10px] font-bold mb-1 uppercase tracking-widest">Component</div>
+                <div className="text-white/90 font-medium text-lg md:text-base">Monthly Capital Leak</div>
+              </div>
+              <div className="w-full md:w-[30%]">
+                <div className="text-red-400 font-semibold text-xl md:text-lg tracking-wide">{formatCurrency(monthlyLeak)}</div>
+              </div>
+              <div className="w-full md:w-[35%] mt-1 md:mt-0">
+                <div className="text-white/50 text-sm md:pr-4">Direct profit erosion</div>
+              </div>
+            </div>
+
+            {/* Row 4: Annual Capital Leakage */}
+            <div className="flex flex-col md:flex-row md:items-center bg-gradient-to-r from-red-500/10 to-transparent border-y border-red-500/20 py-8 px-5 md:px-8 gap-3 md:gap-0 w-full">
+              <div className="w-full md:w-[35%]">
+                <div className="text-white font-bold text-xl md:text-lg tracking-wider">ANNUAL CAPITAL LEAKAGE</div>
+              </div>
+              <div className="w-full md:w-[30%]">
+                <div className="text-red-500 font-bold text-3xl md:text-2xl tracking-wide">{formatCurrency(annualLeakage)}</div>
+              </div>
+              <div className="w-full md:w-[35%] mt-2 md:mt-0">
+                <div className="text-white/80 text-sm md:pr-4">Total strategic opportunity cost</div>
+              </div>
+            </div>
+
+            {/* Row 5: Strategic Action */}
+            <div className="flex flex-col md:flex-row md:items-center bg-[#0B1120]/50 py-6 px-5 md:px-8 gap-3 md:gap-0 w-full">
+              <div className="w-full md:w-[35%]">
+                <div className="md:hidden text-white/40 text-[10px] font-bold mb-1 uppercase tracking-widest">Action</div>
+                <div className="text-white/90 font-medium text-lg md:text-base">Strategic Action</div>
+              </div>
+              <div className="w-full md:w-[30%]">
+                <div className="text-[#C19B52] font-semibold tracking-wide uppercase text-sm">Required</div>
+              </div>
+              <div className="w-full md:w-[35%] mt-2 md:mt-0">
+                <div className="text-white/60 text-sm italic leading-relaxed md:pr-4">
+                  This leak can be permanently plugged with structured SOPs & KPIs.<br className="hidden md:block"/>
+                  <span className="md:hidden"> </span>Secure your strategic audit below.
                 </div>
               </div>
             </div>
 
-            <div className="bg-black/60 rounded-xl p-10 border border-white/5 text-center flex flex-col justify-center h-full min-w-[320px] relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-b from-red-500/5 to-transparent pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="text-white/50 text-xs font-semibold uppercase tracking-widest mb-4 block relative z-10">Estimated Annual Loss</span>
-              <div className="text-5xl md:text-7xl font-bold text-red-500 font-serif tabular-nums tracking-tighter relative z-10 mb-2">
-                ₹{(leakage / 100000).toFixed(1)}<span className="text-3xl md:text-4xl">L</span>
-              </div>
-              <div className="text-white/60 text-sm font-mono mb-8 relative z-10">≈ ₹{leakage.toLocaleString()}</div>
-              
-              <div className="w-full h-px bg-white/10 mb-6 relative z-10" />
-              
-              <p className="text-white/40 text-xs leading-relaxed relative z-10">
-                This is the invisible cost of operating without documented SOPs, clear KPIs, and robust business systems.
-              </p>
-            </div>
           </div>
         </motion.div>
       </div>
