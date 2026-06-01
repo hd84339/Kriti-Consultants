@@ -7,8 +7,8 @@ const leaders = [
     name: 'Savitri Shah',
     title: 'Founder & Principal Consultant',
     initials: 'SS',
-    bio: 'A software graduate turned HR strategist, Savitri Shah has spent over two decades at the intersection of human systems and organizational design. As the author of "The Gita Code for Perfect Business", she brings a unique philosophical and practical lens to every engagement.',
-    tags: ['Software Graduate', 'HR Strategist', 'Author & Speaker', 'Systems Thinking']
+    bio: 'A software graduate turned organizational consultant, Savitri Shah has spent over two decades at the intersection of human systems and organizational design. She is the creator of "The Gita Code for Perfect Business", bringing a unique philosophical and practical lens to every engagement.',
+    tags: ['20+ Years Experience', 'Author', 'Software Graduate', 'Organizational Consultant']
   },
   {
     name: 'Varun Pershad',

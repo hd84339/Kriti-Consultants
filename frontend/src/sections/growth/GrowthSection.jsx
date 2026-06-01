@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { fadeUp, slideLeft, slideRight, viewportOptions } from '../../animations/variants'
 import SectionLabel from '../../components/ui/SectionLabel'
 
-const before = ['Founder makes every small decision','Team unclear on priorities and roles','No documented processes or SOPs','Performance reviews feel like guesswork','Growth creates more confusion','Reactive fire-fighting culture']
-const after = ['Teams self-manage with clear frameworks','Everyone knows their KPIs and KRAs','Documented SOPs for every function','Data-driven performance culture','Systems scale ahead of growth','Proactive strategic decision-making']
+const before = ['Founder involved everywhere', 'No accountability', 'Daily firefighting']
+const after = ['Documented systems', 'Accountable managers', 'Predictable growth']
 
 export default function GrowthSection() {
   return (
@@ -27,12 +27,12 @@ export default function GrowthSection() {
       <div className="max-w-7xl mx-auto relative z-20">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions} className="text-center mb-16">
           <SectionLabel centered>The Transformation</SectionLabel>
-          <h2 className="section-heading text-navy">Before Kriti vs. After Kriti</h2>
+          <h2 className="section-heading text-navy">Before Kriti Biz vs. After Kriti Biz</h2>
         </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 items-center">
           <motion.div variants={slideLeft} initial="hidden" whileInView="visible" viewport={viewportOptions} className="bg-[#FFFDFD] border border-red-200/70 rounded-xl p-8 shadow-sm">
             <h3 className="text-lg font-semibold text-navy mb-6 flex items-center gap-3">
-              Before Kriti
+              Before Kriti Biz
               <span className="text-xs px-3 py-1 rounded-full border font-sans animate-pulse" style={{ background: 'rgba(239,68,68,0.08)', color: '#dc2626', borderColor: 'rgba(239,68,68,0.2)' }}>Chaos Mode</span>
             </h3>
             <div className="space-y-3">{before.map((item) => (<div key={item} className="flex items-start gap-3 text-sm text-navy/70"><span className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0 mt-1.5" />{item}</div>))}</div>
@@ -41,7 +41,7 @@ export default function GrowthSection() {
           <div className="text-4xl text-gold text-center lg:hidden">&#8595;</div>
           <motion.div variants={slideRight} initial="hidden" whileInView="visible" viewport={viewportOptions} className="border rounded-xl p-8 shadow-sm" style={{ background: 'rgba(200,169,107,0.06)', borderColor: 'rgba(200,169,107,0.45)' }}>
             <h3 className="text-lg font-semibold text-navy mb-6 flex items-center gap-3">
-              After Kriti
+              After Kriti Biz
               <span className="text-xs px-3 py-1 rounded-full border font-sans" style={{ background: 'rgba(200,169,107,0.15)', color: '#9A7A40', borderColor: 'rgba(200,169,107,0.25)' }}>Systems Mode</span>
             </h3>
             <div className="space-y-3">{after.map((item) => (<div key={item} className="flex items-start gap-3 text-sm text-navy/70"><span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-1.5" />{item}</div>))}</div>

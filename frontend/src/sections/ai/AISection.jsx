@@ -18,9 +18,9 @@ export default function AISection() {
 
       <div className="max-w-7xl mx-auto relative z-20">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions} className="mb-14">
-          <SectionLabel>AI-Powered Consulting</SectionLabel>
-          <h2 className="section-heading">Modern Consulting<br />Powered By AI</h2>
-          <p className="section-sub max-w-xl">We integrate cutting-edge AI tools into every engagement — delivering faster insights, sharper analysis, and automated execution at scale.</p>
+          <SectionLabel>Our Differentiator</SectionLabel>
+          <h2 className="section-heading">Traditional Consulting +<br />AI Acceleration</h2>
+          <p className="section-sub max-w-xl">We combine decades of business wisdom with cutting-edge AI tools — delivering faster insights, sharper analysis, and automated execution at scale.</p>
         </motion.div>
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOptions} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {AI_FEATURES.map((f) => (

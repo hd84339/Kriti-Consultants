@@ -12,4 +12,20 @@ API.interceptors.response.use(
 )
 
 export const submitContact = (data) => API.post('/contact', data)
+export const submitApplication = (data) => API.post('/applications/submit', data)
+export const getApplications = (token) => API.get('/applications/all', { headers: { Authorization: `Bearer ${token}` } })
+export const updateApplicationStatus = (id, status, token) => API.patch(`/applications/${id}/status`, { status }, { headers: { Authorization: `Bearer ${token}` } })
+export const deleteApplication = (id, token) => API.delete(`/applications/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+export const loginAdmin = (data) => API.post('/auth/login', data)
+export const createAdmin = (data, token) => API.post('/admins/create', data, { headers: { Authorization: `Bearer ${token}` } })
+export const getAllAdmins = (token) => API.get('/admins/all', { headers: { Authorization: `Bearer ${token}` } })
+
+// Blog Endpoints
+export const fetchBlogs = () => API.get('/blogs')
+export const fetchBlogBySlug = (slug) => API.get(`/blogs/${slug}`)
+export const createBlog = (data, token) => API.post('/blogs', data, { headers: { Authorization: `Bearer ${token}` } })
+export const updateBlog = (id, data, token) => API.put(`/blogs/${id}`, data, { headers: { Authorization: `Bearer ${token}` } })
+export const deleteBlog = (id, token) => API.delete(`/blogs/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+export const seedBlogs = (data, token) => API.post('/blogs/seed', data, { headers: { Authorization: `Bearer ${token}` } })
+
 export default API

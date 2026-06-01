@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X } from 'lucide-react'
 import { useContactModal } from '../../context/ContactModalContext'
-import ContactForm from './ContactForm'
+import ExecutiveApplicationForm from './ExecutiveApplicationForm'
 
 export default function ContactModal() {
   const { isOpen, prefilledType, prefilledMessage, closeModal } = useContactModal()
@@ -58,14 +58,14 @@ export default function ContactModal() {
 
             {/* Header */}
             <div className="text-center mb-6 pr-4">
-              <h3 className="font-serif text-2xl font-bold text-white mb-2">Book Free Consultation</h3>
+              <h3 className="font-serif text-2xl font-bold text-white mb-2">Apply For Retainership</h3>
               <p className="text-white/50 text-sm leading-relaxed">
-                Identify operational gaps and build scalable frameworks with a free 30-minute business audit.
+                We only take on a limited number of retainership clients per quarter. Apply below to see if we're a fit.
               </p>
             </div>
 
             {/* Reusable Form */}
-            <ContactForm theme="dark" defaultBusinessType={prefilledType} defaultMessage={prefilledMessage} />
+            <ExecutiveApplicationForm theme="dark" />
           </motion.div>
         </div>
       )}

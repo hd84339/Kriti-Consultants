@@ -26,12 +26,11 @@ export default function TrustedSection() {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 relative z-20">
-        <StatItem value={200} suffix="+" label="Clients Served" delay={0} />
-        <StatItem value={15} suffix="+" label="Industries" delay={0.1} />
-        <StatItem value={98} suffix="%" label="Client Satisfaction" delay={0.2} />
-        <StatItem value={5} suffix="+" label="Years of Impact" delay={0.3} />
-        <StatItem value={25} suffix="+" label="Expert Consultants" delay={0.4} />
+      <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8 relative z-20">
+        <StatItem value={20} suffix="+" label="Years Experience" delay={0} />
+        <StatItem value={500} suffix="+" label="Businesses Consulted" delay={0.1} />
+        <StatItem value={1000} suffix="+" label="Employees Structured" delay={0.2} />
+        <StatItem value={50} suffix="+" label="Industries Served" delay={0.3} />
       </div>
     </div>
   )

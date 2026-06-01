@@ -30,8 +30,8 @@ export default function CTASection() {
           </h2>
           <p className="text-navy/60 text-lg leading-relaxed mb-10 max-w-xl">Your next stage of growth is not about working harder. It is about building the frameworks that work for you — even when you are not in the room.</p>
           <div className="flex flex-wrap gap-4">
-            <button onClick={() => openModal()} className="btn-primary text-base px-8 py-4">Book Free Consultation</button>
-            <button onClick={() => openModal()} className="border border-navy/20 text-navy bg-transparent px-8 py-4 rounded text-base font-medium tracking-wide transition-all duration-300 hover:border-navy/50 hover:bg-navy/5 cursor-pointer">Get Business Audit</button>
+            <button onClick={() => openModal()} className="btn-primary text-base px-8 py-4">Book A Strategic System Audit</button>
+            <button onClick={() => openModal()} className="border border-navy/20 text-navy bg-transparent px-8 py-4 rounded text-base font-medium tracking-wide transition-all duration-300 hover:border-navy/50 hover:bg-navy/5 cursor-pointer">Check Retainership Availability</button>
           </div>
         </motion.div>
         

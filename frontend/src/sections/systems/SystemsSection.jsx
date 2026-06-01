@@ -16,7 +16,7 @@ export default function SystemsSection() {
       <div className="max-w-7xl mx-auto relative z-20">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions} className="text-center mb-20">
           <SectionLabel centered>Our Process</SectionLabel>
-          <h2 className="section-heading">How We Engineer Your<br />Business Transformation</h2>
+          <h2 className="section-heading">The Kriti Biz Transformation<br />Framework</h2>
         </motion.div>
         <div className="hidden lg:block relative">
           <motion.div className="absolute top-7 left-7 right-7 h-px" style={{ background: 'linear-gradient(90deg, #C8A96B, rgba(200,169,107,0.3), #C8A96B)' }}

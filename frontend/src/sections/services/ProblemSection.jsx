@@ -79,8 +79,8 @@ export default function ProblemSection() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions}>
             <SectionLabel>The Core Problem</SectionLabel>
-            <h2 className="section-heading text-navy">Invisible Operational Leakage<br />Is Killing Business Growth</h2>
-            <p className="text-navy/65 text-base leading-relaxed font-light mt-4 max-w-xl font-light">Most founders work harder, not smarter — fighting fires daily while structural gaps quietly drain profits and energy.</p>
+            <h2 className="section-heading text-navy">The 3 Invisible Losses<br />Killing Business Growth</h2>
+            <p className="text-navy/65 text-base leading-relaxed font-light mt-4 max-w-xl">Most founders work harder, not smarter — fighting fires daily while structural gaps quietly drain profits and energy.</p>
           </motion.div>
 
           {/* Navigation Controls */}

@@ -44,7 +44,7 @@ export default function About() {
               We Are Organizational <em className="text-gold not-italic">Engineers</em>
             </h1>
             <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto font-light">
-              Kriti Business Consultants is a premier strategic management firm dedicated to transforming businesses from &ldquo;hustle-driven&rdquo; operations into organized &ldquo;powerhouse&rdquo; entities. Led by Savitri Shah &amp; Varun Pershad, the firm specializes in organizational engineering. We bridge the gap between visionary goals and operational reality through robust HR frameworks, process optimization, and strategic alignment.
+              Kriti Biz is a premier strategic management firm dedicated to transforming businesses from &ldquo;hustle-driven&rdquo; operations into organized &ldquo;powerhouse&rdquo; entities. Led by Savitri Shah &amp; Varun Pershad, the firm specializes in organizational engineering. We bridge the gap between visionary goals and operational reality through robust HR frameworks, process optimization, and strategic alignment.
             </p>
           </motion.div>
         </div>

@@ -1,14 +1,21 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { MapPin, Mail, Phone } from 'lucide-react'
 import { BRAND, SERVICES } from '../../constants'
 
 export default function Footer() {
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false)
+
+  useEffect(() => {
+    setIsAdminLoggedIn(!!localStorage.getItem('adminToken'))
+  }, [])
+
   return (
     <footer className="bg-navy-2">
       <div className="max-w-7xl mx-auto px-[4%] pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <Link to="/" className="font-serif text-2xl font-bold text-white">Kriti <span className="text-gold">Consultants</span></Link>
+            <Link to="/" className="font-serif text-2xl font-bold text-white">Kriti <span className="text-gold">Biz</span></Link>
             <p className="text-gold text-xs tracking-widest mt-2 mb-4">{BRAND.tagline}</p>
             <p className="text-white/40 text-sm leading-relaxed">Strategic consulting and organizational engineering for founders who want to scale without chaos.</p>
           </div>
@@ -49,7 +56,13 @@ export default function Footer() {
           </div>
         </div>
         <div className="pt-8 border-t border-gold/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-white/25 text-xs">© {new Date().getFullYear()} Kriti Business Consultants. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-3 text-white/25 text-xs">
+            <p>© {new Date().getFullYear()} Kriti Biz. All rights reserved.</p>
+            <span className="hidden sm:inline text-white/10">•</span>
+            <Link to={isAdminLoggedIn ? "/admin/dashboard" : "/admin/login"} className="hover:text-gold transition-colors">
+              {isAdminLoggedIn ? "Admin Dashboard" : "Admin Login"}
+            </Link>
+          </div>
           <div className="text-white/25 text-xs flex flex-wrap items-center gap-2 justify-center sm:justify-end">
             <span>Made by <a href="https://webvisionsoftech.com" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-gold transition-colors duration-300 font-medium">webvisionsoftech.com</a></span>
             <span className="text-white/10 select-none">•</span>

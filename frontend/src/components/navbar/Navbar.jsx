@@ -15,7 +15,7 @@ export default function Navbar() {
     <>
       <motion.nav initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[4%] transition-all duration-300 ${scrolled ? 'py-3 bg-navy/90 backdrop-blur-xl border-b border-gold/10' : 'py-5'}`}>
-        <Link to="/" className="font-serif text-2xl font-bold text-white">Kriti <span className="text-gold">Consultants</span></Link>
+        <Link to="/" className="font-serif text-2xl font-bold text-white">Kriti <span className="text-gold">Biz</span></Link>
         <ul className="hidden lg:flex items-center gap-8 list-none">
           {NAV_LINKS.map((l) => (
             <li key={l.label}>

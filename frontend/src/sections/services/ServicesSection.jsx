@@ -16,9 +16,9 @@ export default function ServicesSection() {
 
       <div className="max-w-7xl mx-auto relative z-20">
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={viewportOptions} className="mb-14">
-          <SectionLabel>What We Do</SectionLabel>
-          <h2 className="section-heading">End-to-End Business Systems<br />Engineering</h2>
-          <p className="section-sub max-w-xl">From clarity to scale — we architect the complete operational backbone your business needs to run without you.</p>
+          <SectionLabel>Tactical Implementations</SectionLabel>
+          <h2 className="section-heading">What We Implement</h2>
+          <p className="section-sub max-w-xl">The precise tools, systems, and frameworks we deploy to engineer your business for scale.</p>
         </motion.div>
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={viewportOptions} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {SERVICES.map((s) => (

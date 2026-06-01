@@ -51,13 +51,13 @@ export default function HeroSection() {
             <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />Strategic Consulting Excellence
           </motion.div>
           <motion.h1 variants={staggerItem} className="font-serif font-bold leading-[1.1] tracking-tight mb-6" style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)' }}>
-            Your Business Does Not Need More Hustle. It Needs <em className="text-gold not-italic">Systems.</em>
+            Build A Business That Runs Without Constant <em className="text-gold not-italic">Founder Intervention.</em>
           </motion.h1>
           <motion.p variants={staggerItem} className="text-white/60 text-lg leading-relaxed font-light mb-8 max-w-xl">
-            We help founders transform operational chaos into scalable business frameworks through SOPs, KPI systems, HR engineering, and AI-powered optimization.
+            We help business owners eliminate operational chaos through SOPs, KRAs, KPIs, PMS systems and strategic consulting frameworks.
           </motion.p>
           <motion.div variants={staggerItem} className="flex flex-wrap gap-4 mb-12">
-            <button onClick={() => openModal()} className="btn-primary">Get Free Audit</button>
+            <button onClick={() => openModal()} className="btn-primary">Request A System Audit</button>
             <button onClick={() => openModal()} className="btn-secondary">Book Strategy Call</button>
           </motion.div>
           <motion.div variants={staggerItem} className="flex gap-10">

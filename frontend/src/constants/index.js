@@ -8,8 +8,8 @@ import visionImg from '../assets/images/vision_mission.png'
 import vastuImg from '../assets/images/vastu_brand.png'
 
 export const BRAND = {
-  name: 'Kriti Business Consultants',
-  shortName: 'Kriti Consultants',
+  name: 'Kriti Biz',
+  shortName: 'Kriti Biz',
   tagline: 'Freedom Through Frameworks',
   email: 'hello@kriticonsultants.in',
   phone: '+91 98XXX XXXXX',
@@ -38,17 +38,17 @@ export const SERVICES = [
 ]
 
 export const PROCESS_STEPS = [
-  { num: '01', title: 'Business Audit', desc: 'Deep diagnostic scan of your operations, culture, and systems landscape' },
-  { num: '02', title: 'Strategy Design', desc: 'Custom transformation roadmap aligned to your vision and growth stage' },
-  { num: '03', title: 'System Build', desc: 'SOPs, KPIs, frameworks and documentation engineered for your context' },
-  { num: '04', title: 'Team Alignment', desc: "Training, adoption, and embedding systems into your team's daily rhythm" },
-  { num: '05', title: 'Scale & Optimize', desc: 'Continuous improvement cycles to evolve your systems as you grow' },
+  { num: '01', title: 'Business Health Audit', desc: 'Deep diagnostic scan of your operations, culture, and systems landscape' },
+  { num: '02', title: 'Process Mapping', desc: 'Custom transformation roadmap aligned to your vision and growth stage' },
+  { num: '03', title: 'Systems Implementation', desc: 'SOPs, KPIs, frameworks and documentation engineered for your context' },
+  { num: '04', title: 'Performance Alignment', desc: "Training, adoption, and embedding systems into your team's daily rhythm" },
+  { num: '05', title: 'Scale & Sustain', desc: 'Continuous improvement cycles to evolve your systems as you grow' },
 ]
 
 export const TESTIMONIALS = [
-  { name: 'Rajesh Kumar', role: 'Founder, TechVentures Pvt Ltd', location: 'Mumbai', initials: 'RK', text: 'Kriti Consultants completely rebuilt how our HR department operates. SOPs for every process, a KPI framework the team actually uses. Revenue up 40% in 8 months.', rating: 5 },
-  { name: 'Priya Mehta', role: 'CEO, Meridian Retail Group', location: 'Hyderabad', initials: 'PM', text: "The business audit opened our eyes to inefficiencies we'd been blind to. Savitri's approach is methodical, empathetic, and remarkably effective.", rating: 5 },
-  { name: 'Arjun Sharma', role: 'MD, Apex Manufacturing', location: 'Virar', initials: 'AS', text: 'We hired for scale and got transformation. The AI workflow integration alone saved us 20 hours a week. If you are serious about building a real business, Kriti is the only call to make.', rating: 5 },
+  { name: 'Rajesh Kumar', role: 'Founder, TechVentures Pvt Ltd', location: 'Mumbai', initials: 'RK', text: 'Kriti Biz completely rebuilt how our HR department operates. SOPs for every process, a KPI framework the team actually uses. Revenue up 40% in 8 months.', rating: 5, industry: 'Technology', timeline: '8 Months', result: '40% Revenue Growth' },
+  { name: 'Priya Mehta', role: 'CEO, Meridian Retail Group', location: 'Hyderabad', initials: 'PM', text: "The business audit opened our eyes to inefficiencies we'd been blind to. Savitri's approach is methodical, empathetic, and remarkably effective.", rating: 5, industry: 'Retail', timeline: '60 Days', result: '25% Efficiency Gain' },
+  { name: 'Arjun Sharma', role: 'MD, Apex Manufacturing', location: 'Virar', initials: 'AS', text: 'We hired for scale and got transformation. The AI workflow integration alone saved us 20 hours a week. If you are serious about building a real business, Kriti Biz is the only call to make.', rating: 5, industry: 'Manufacturing', timeline: '45 Days', result: '35% Operational Improvement' },
 ]
 
 export const FAQS = [
@@ -60,12 +60,9 @@ export const FAQS = [
 ]
 
 export const PROBLEMS = [
-  { icon: '🔗', title: 'Founder Dependency', desc: 'Every decision flows through you. The business stops when you stop — a ticking time bomb for scale.' },
-  { icon: '🌀', title: 'Team Confusion', desc: 'Roles blur, accountability vanishes, and your best people repeat the same mistakes without systems.' },
-  { icon: '📄', title: 'No SOPs Documented', desc: 'Tribal knowledge walks out the door with every resignation, resetting your operations from zero.' },
-  { icon: '📉', title: 'Low Accountability', desc: 'Without measurable KPIs, performance reviews feel subjective and improvement stalls.' },
-  { icon: '⚡', title: 'Scaling Chaos', desc: 'Growth exposes every gap — more people, more confusion, more cost with diminishing returns.' },
-  { icon: '🎯', title: 'Poor KPI Tracking', desc: "You're flying blind on numbers that matter. Gut feeling replaces data-driven decisions at every level." },
+  { icon: '👥', title: 'People Leakage', desc: 'Teams constantly wait for founder approval.' },
+  { icon: '⚙️', title: 'Process Leakage', desc: "Work gets delayed because systems don't exist." },
+  { icon: '💸', title: 'Profit Leakage', desc: 'Founders spend time solving problems instead of scaling.' },
 ]
 
 export const AI_FEATURES = [
