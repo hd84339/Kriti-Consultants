@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Plus, Trash2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { uploadImage } from '../../services/api';
 
 export default function BlogEditorModal({ isOpen, onClose, initialData, onSave }) {
   const [formData, setFormData] = useState({
@@ -20,7 +21,32 @@ export default function BlogEditorModal({ isOpen, onClose, initialData, onSave }
       metrics: []
     }
   });
+  const [isUploading, setIsUploading] = useState(false);
 
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    try {
+      setIsUploading(true);
+      const token = localStorage.getItem('adminToken');
+      const formDataUpload = new FormData();
+      formDataUpload.append('image', file);
+
+      const res = await uploadImage(formDataUpload, token);
+      
+      // Construct full backend URL
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const baseUrl = apiUrl.replace(/\/api$/, '');
+      const fullUrl = `${baseUrl}${res.url}`;
+
+      setFormData(prev => ({ ...prev, image: fullUrl }));
+    } catch (error) {
+      alert(error.message || 'Error uploading image');
+    } finally {
+      setIsUploading(false);
+    }
+  };
   useEffect(() => {
     if (initialData) {
       setFormData({
@@ -166,8 +192,12 @@ export default function BlogEditorModal({ isOpen, onClose, initialData, onSave }
                     <input type="text" name="author" required value={formData.author} onChange={handleChange} className="w-full bg-[#FAF8F5] border border-gold/20 rounded-lg p-3 text-sm text-navy focus:outline-none focus:border-gold/60" />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-navy/70 uppercase mb-2">Image URL *</label>
-                    <input type="text" name="image" required value={formData.image} onChange={handleChange} className="w-full bg-[#FAF8F5] border border-gold/20 rounded-lg p-3 text-sm text-navy focus:outline-none focus:border-gold/60" placeholder="https://example.com/image.png or /images/local.png" />
+                    <label className="block text-xs font-bold text-navy/70 uppercase mb-2">Blog Image *</label>
+                    <div className="flex flex-col gap-2">
+                      <input type="file" accept="image/*" onChange={handleImageUpload} className="text-sm file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-gold/10 file:text-gold hover:file:bg-gold hover:file:text-white transition-colors cursor-pointer" />
+                      {isUploading && <span className="text-xs text-gold">Uploading image...</span>}
+                      <input type="text" name="image" required value={formData.image} onChange={handleChange} className="w-full bg-[#FAF8F5] border border-gold/20 rounded-lg p-3 text-sm text-navy focus:outline-none focus:border-gold/60" placeholder="Image URL (Auto-fills after upload or type manually)" />
+                    </div>
                   </div>
                   <div className="md:col-span-2">
                     <label className="block text-xs font-bold text-navy/70 uppercase mb-2">Short Description (Preview) *</label>

@@ -6,6 +6,11 @@ import aiImg from '../assets/images/ai_workflow.png'
 import retainershipImg from '../assets/images/retainership_consulting.png'
 import visionImg from '../assets/images/vision_mission.png'
 import vastuImg from '../assets/images/vastu_brand.png'
+import contractStaffingImg from '../assets/images/contract_staffing.png'
+import backgroundVerificationImg from '../assets/images/background_verification.png'
+import hrOutsourcingImg from '../assets/images/hr_outsourcing.png'
+import campusRecruitmentImg from '../assets/images/campus_recruitment.png'
+import executiveSearchImg from '../assets/images/executive_search.png'
 
 export const BRAND = {
   name: 'Kriti Biz',
@@ -35,6 +40,11 @@ export const SERVICES = [
   { icon: '🤝', title: 'Retainership Consulting', desc: 'Ongoing strategic advisory support as an embedded thought partner for your leadership team.', slug: 'retainership', image: retainershipImg },
   { icon: '🧭', title: 'Vision & Mission Alignment', desc: 'Crystallize your organizational north star and align every person, process, and policy toward it.', slug: 'vision-mission', image: visionImg },
   { icon: '🏛️', title: 'Vastu & Brand Alignment', desc: 'Harmonize your physical workspace and brand identity to amplify energy, focus, and team culture.', slug: 'vastu-brand', image: vastuImg },
+  { icon: '📝', title: 'Contract Staffing Services', desc: 'Scalable workforce solutions designed for total business agility. In today’s fast-paced market, rigid organizational structures often hinder growth and responsiveness. We provide highly skilled, thoroughly vetted professionals on a contract basis, allowing your organization to rapidly scale up for critical projects or effortlessly manage seasonal surges. By leveraging our contract staffing expertise, you maintain seamless operational continuity while significantly reducing long-term overhead costs, statutory burdens, and permanent employment liabilities. We handle the recruitment, onboarding, and payroll, empowering your core team to remain strictly focused on driving high-level strategic objectives.', slug: 'contract-staffing', image: contractStaffingImg },
+  { icon: '✅', title: 'Background Verification Services', desc: 'Comprehensive, risk-mitigating candidate screening designed for absolute peace of mind. Hiring the wrong candidate can cost your business significantly in both capital and culture. Our rigorous, multi-tiered verification process dives deep beyond the resume. We conduct exhaustive employment history checks, validate educational credentials directly with institutions, perform thorough physical and digital address verifications, and conduct strict criminal record screenings. By partnering with us for background checks, you proactively eliminate recruitment risks, protect your company\'s intellectual property, and ensure that every new hire contributes to a safe, trustworthy, and fully compliant workplace ecosystem.', slug: 'background-verification', image: backgroundVerificationImg },
+  { icon: '🤝', title: 'HR Outsourcing Services', desc: 'End-to-end human resource management so you can focus on core business growth. We handle the entire employee lifecycle—from seamless onboarding and payroll administration to compliance tracking and daily HR operations.', slug: 'hr-outsourcing', image: hrOutsourcingImg },
+  { icon: '🎓', title: 'Campus Recruitment Services', desc: 'Strategic early-talent acquisition programs. We partner with top-tier educational institutions to design and execute high-impact campus recruitment drives, securing the brightest fresh talent to build your future leadership pipeline.', slug: 'campus-recruitment', image: campusRecruitmentImg },
+  { icon: '👔', title: 'Executive Search Services', desc: 'Targeted acquisition of visionary leadership. We leverage deep industry networks and behavioral science to identify, engage, and secure C-suite executives and senior leaders who align perfectly with your organizational DNA and strategic goals.', slug: 'executive-search', image: executiveSearchImg },
 ]
 
 export const PROCESS_STEPS = [

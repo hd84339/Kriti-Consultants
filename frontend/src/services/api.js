@@ -28,4 +28,11 @@ export const updateBlog = (id, data, token) => API.put(`/blogs/${id}`, data, { h
 export const deleteBlog = (id, token) => API.delete(`/blogs/${id}`, { headers: { Authorization: `Bearer ${token}` } })
 export const seedBlogs = (data, token) => API.post('/blogs/seed', data, { headers: { Authorization: `Bearer ${token}` } })
 
+// Upload Endpoints
+export const uploadImage = (formData, token) => API.post('/upload', formData, { 
+  headers: { 
+    Authorization: `Bearer ${token}`,
+    'Content-Type': 'multipart/form-data' 
+  } 
+})
 export default API

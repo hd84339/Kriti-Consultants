@@ -1,4 +1,26 @@
 const Blog = require("../models/Blog");
+const fs = require("fs");
+const path = require("path");
+
+// Helper to delete local uploaded images
+const deleteLocalImage = (imageUrl) => {
+  if (!imageUrl) return;
+  
+  // Only delete if it's a local /uploads/ image
+  if (imageUrl.includes('/uploads/')) {
+    const filename = imageUrl.split('/').pop();
+    // Assuming backend/uploads is in the root directory relative to src/controllers
+    const filepath = path.join(__dirname, '../../uploads', filename);
+    
+    fs.unlink(filepath, (err) => {
+      if (err && err.code !== 'ENOENT') {
+        console.error('Failed to delete old image:', filepath, err);
+      } else {
+        console.log('Successfully deleted old image or file not found:', filepath);
+      }
+    });
+  }
+};
 
 // @desc    Get all blogs
 // @route   GET /api/blogs
@@ -55,13 +77,20 @@ const createBlog = async (req, res) => {
 // @access  Private/Admin
 const updateBlog = async (req, res) => {
   try {
+    const blogToUpdate = await Blog.findById(req.params.id);
+    if (!blogToUpdate) {
+      return res.status(404).json({ success: false, message: "Blog not found" });
+    }
+
+    // Check if the image is being changed
+    if (req.body.image && req.body.image !== blogToUpdate.image) {
+      deleteLocalImage(blogToUpdate.image);
+    }
+
     const blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
-    if (!blog) {
-      return res.status(404).json({ success: false, message: "Blog not found" });
-    }
     res.status(200).json({ success: true, blog });
   } catch (error) {
     console.error("Error updating blog:", error);
@@ -78,6 +107,10 @@ const deleteBlog = async (req, res) => {
     if (!blog) {
       return res.status(404).json({ success: false, message: "Blog not found" });
     }
+
+    // Delete associated image from filesystem
+    deleteLocalImage(blog.image);
+
     res.status(200).json({ success: true, message: "Blog deleted successfully" });
   } catch (error) {
     console.error("Error deleting blog:", error);

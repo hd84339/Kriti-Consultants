@@ -29,7 +29,7 @@ export default function OperationalLeakageCalculator() {
   }
 
   return (
-    <section className="py-24 md:py-28 px-4 md:px-[4%] bg-[#0B1120] relative overflow-hidden w-full max-w-[100vw]" id="calculator">
+    <section className="py-24 md:py-28 px-4 md:px-[4%] bg-[#0B1120] relative overflow-hidden w-full" id="calculator">
       <div className="absolute inset-0 bg-dots-dark opacity-30 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[600px] aspect-square bg-red-600/10 rounded-full blur-[100px] pointer-events-none z-0" />
       
