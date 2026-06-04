@@ -1,19 +1,23 @@
 import { motion } from 'framer-motion'
 import { fadeUp, staggerContainer, staggerItem, viewportOptions } from '../../animations/variants'
 import SectionLabel from '../../components/ui/SectionLabel'
+import savitriImg from '../../assets/foundersimg/Savitri.jpeg'
+import varunImg from '../../assets/foundersimg/varunparasadh.png'
 
 const leaders = [
   {
     name: 'Savitri Shah',
     title: 'Founder & Principal Consultant',
     initials: 'SS',
+    image: savitriImg,
     bio: 'A software graduate turned organizational consultant, Savitri Shah has spent over two decades at the intersection of human systems and organizational design. She is the creator of "The Gita Code for Perfect Business", bringing a unique philosophical and practical lens to every engagement.',
     tags: ['20+ Years Experience', 'Author', 'Software Graduate', 'Organizational Consultant']
   },
   {
-    name: 'Varun Pershad',
+    name: 'Mr. Varun',
     title: 'Co-founder & Operations Director',
     initials: 'VP',
+    image: varunImg,
     bio: 'Varun Pershad is a veteran operations consultant specializing in process optimization, workflow engineering, and strategic execution. He bridges the gap between high-level visionary goals and operational reality through robust organizational architecture and alignment.',
     tags: ['Operations Engineer', 'Process Specialist', 'Workflow Design', 'Strategic Alignment']
   }
@@ -30,11 +34,11 @@ export default function FounderSection() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-20">
-        <motion.div 
-          variants={fadeUp} 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={viewportOptions} 
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
           className="text-center mb-16"
         >
           <SectionLabel centered>Our Leadership</SectionLabel>
@@ -44,15 +48,15 @@ export default function FounderSection() {
           </p>
         </motion.div>
 
-        <motion.div 
-          variants={staggerContainer} 
-          initial="hidden" 
-          whileInView="visible" 
-          viewport={viewportOptions} 
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOptions}
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mt-8"
         >
           {leaders.map((leader) => (
-            <motion.div 
+            <motion.div
               key={leader.name}
               variants={staggerItem}
               className="flex flex-col sm:flex-row gap-8 items-start bg-white p-8 rounded-2xl border border-gold/20 shadow-md justify-between"
@@ -61,7 +65,11 @@ export default function FounderSection() {
               <div className="relative w-full sm:w-36 flex-shrink-0 mx-auto sm:mx-0">
                 <div className="w-full aspect-[4/5] rounded-xl border flex items-center justify-center relative overflow-hidden"
                   style={{ background: 'linear-gradient(135deg, rgba(200,169,107,0.2) 0%, rgba(11,17,32,0.65) 100%)', borderColor: 'rgba(200,169,107,0.4)' }}>
-                  <span className="font-serif text-6xl font-bold text-gold/30 tracking-tighter select-none">{leader.initials}</span>
+                  {leader.image ? (
+                    <img src={leader.image} alt={leader.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="font-serif text-6xl font-bold text-gold/30 tracking-tighter select-none">{leader.initials}</span>
+                  )}
                 </div>
               </div>
 

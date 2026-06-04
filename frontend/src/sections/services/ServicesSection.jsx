@@ -49,7 +49,7 @@ export default function ServicesSection() {
                         className={`group bg-[#F4F4F5] rounded-3xl overflow-hidden flex ${isWide ? 'flex-col md:flex-row' : 'flex-col'} ${gridClass} hover:-translate-y-1 transition-transform duration-300 shadow-lg shadow-black/10`}>
                         
                         {/* Image Section */}
-                        <div className={`${isWide ? 'w-full md:w-2/5 h-48 md:h-full' : (isTall ? 'w-full h-48 md:h-56' : 'w-full h-32 md:h-40')} relative overflow-hidden bg-gray-200 shrink-0`}>
+                        <div className={`relative overflow-hidden bg-gray-200 shrink-0 ${isWide ? 'w-full md:w-2/5 aspect-[16/10] md:aspect-auto md:h-full' : (isTall ? 'w-full aspect-[16/10] md:aspect-auto md:h-56' : 'w-full aspect-[16/10] md:aspect-auto md:h-40')}`}>
                           <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                         </div>
 
@@ -59,7 +59,7 @@ export default function ServicesSection() {
                             <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-lg shadow-sm text-gray-900 border border-gray-100 shrink-0">{s.icon}</div>
                             <h4 className="font-serif text-xl font-bold text-gray-900 leading-snug">{s.title}</h4>
                           </div>
-                          <p className={`text-gray-600 text-sm leading-relaxed mb-4 flex-1 ${isTall ? 'line-clamp-none' : 'line-clamp-3 md:line-clamp-4'}`}>{s.desc}</p>
+                          <p className={`text-gray-600 text-sm leading-relaxed mb-4 flex-1 ${isTall ? 'line-clamp-none' : 'line-clamp-none md:line-clamp-4'}`}>{s.desc}</p>
                           <Link to="/services" className="text-gray-900 font-semibold text-xs tracking-wide flex items-center gap-1.5 self-start hover:text-gold transition-colors mt-auto uppercase">Explore Service <span className="group-hover:translate-x-1 transition-transform">→</span></Link>
                         </div>
                       </motion.div>
@@ -75,7 +75,7 @@ export default function ServicesSection() {
                       <motion.div variants={staggerItem}
                         className="group bg-[#F4F4F5] rounded-3xl overflow-hidden flex flex-col md:flex-row hover:-translate-y-1 transition-transform duration-300 shadow-lg shadow-black/10 md:h-52">
                         
-                        <div className="w-full md:w-1/3 h-48 md:h-full relative overflow-hidden bg-gray-200 shrink-0">
+                        <div className="w-full md:w-1/3 aspect-[16/10] md:aspect-auto md:h-full relative overflow-hidden bg-gray-200 shrink-0">
                           <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                         </div>
 
@@ -84,7 +84,7 @@ export default function ServicesSection() {
                             <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-xl shadow-sm text-gray-900 border border-gray-100 shrink-0">{s.icon}</div>
                             <h4 className="font-serif text-xl md:text-2xl font-bold text-gray-900 leading-snug">{s.title}</h4>
                           </div>
-                          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4 line-clamp-3">{s.desc}</p>
+                          <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4 line-clamp-none md:line-clamp-3">{s.desc}</p>
                           <Link to="/services" className="text-gray-900 font-semibold text-sm tracking-wide flex items-center gap-2 self-start hover:text-gold transition-colors mt-auto">Explore Service <span className="group-hover:translate-x-1 transition-transform">→</span></Link>
                         </div>
                       </motion.div>
