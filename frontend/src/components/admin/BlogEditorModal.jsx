@@ -217,7 +217,7 @@ export default function BlogEditorModal({ isOpen, onClose, initialData, onSave }
                   <label className="block text-xs font-bold text-navy/70 uppercase mb-2">Introduction *</label>
                   <textarea name="intro" required value={formData.content.intro} onChange={handleContentChange} rows="3" className="w-full bg-[#FAF8F5] border border-gold/20 rounded-lg p-3 text-sm text-navy focus:outline-none focus:border-gold/60" />
                 </div>
-
+                   
                 {/* Dynamic Sections */}
                 <div>
                   <div className="flex justify-between items-center mb-4">

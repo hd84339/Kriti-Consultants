@@ -47,7 +47,6 @@ export default function FounderSection() {
             We bridge the gap between visionary goals and operational reality through robust HR frameworks, process optimization, and strategic alignment.
           </p>
         </motion.div>
-
         <motion.div
           variants={staggerContainer}
           initial="hidden"
