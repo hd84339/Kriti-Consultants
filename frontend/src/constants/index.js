@@ -17,8 +17,8 @@ export const BRAND = {
   shortName: 'Kriti Biz',
   tagline: 'Freedom Through Frameworks',
   email: 'hello@kriticonsultants.in',
-  phone: '+91 98XXX XXXXX',
-  whatsapp: '919800000000',
+  phone: '+91 93238 20779',
+  whatsapp: '919323820779',
   locations: ['Virar, Maharashtra', 'Hyderabad, Telangana'],
   social: { linkedin: 'https://linkedin.com', twitter: 'https://twitter.com', instagram: 'https://instagram.com' },
 }

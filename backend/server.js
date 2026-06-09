@@ -10,6 +10,7 @@ const adminManagementRoutes = require("./src/routes/adminManagementRoutes");
 const applicationRoutes = require("./src/routes/applicationRoutes");
 const blogRoutes = require("./src/routes/blogRoutes");
 const uploadRoutes = require("./src/routes/uploadRoutes");
+const assessmentLeadRoutes = require("./src/routes/assessmentLeadRoutes");
 const path = require("path");
 
 const app = express();
@@ -32,6 +33,7 @@ app.use(
 app.use("/api/applications", applicationRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/upload", uploadRoutes);
+app.use("/api/assessment-leads", assessmentLeadRoutes);
 
 // Make the uploads folder accessible statically
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

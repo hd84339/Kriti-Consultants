@@ -8,7 +8,7 @@ import AISection from '../../sections/ai/AISection'
 import FounderSection from '../../sections/founder/FounderSection'
 import AuthoritySection from '../../sections/authority/AuthoritySection'
 import SystemsSection from '../../sections/systems/SystemsSection'
-import OperationalLeakageCalculator from '../../sections/calculator/OperationalLeakageCalculator'
+import BusinessHealthAssessment from '../../sections/calculator/BusinessHealthAssessment'
 import TestimonialsSection from '../../sections/testimonials/TestimonialsSection'
 import FAQSection from '../../sections/faq/FAQSection'
 import ContactSection from '../../sections/contact/ContactSection'
@@ -27,7 +27,7 @@ export default function Home() {
       <FounderSection />
       <AuthoritySection />
       <SystemsSection />
-      <OperationalLeakageCalculator />
+      <BusinessHealthAssessment />
       <TestimonialsSection />
       <FAQSection />
       <ContactSection />

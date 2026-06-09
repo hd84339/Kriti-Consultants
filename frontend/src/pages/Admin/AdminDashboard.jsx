@@ -5,7 +5,7 @@ import { fadeUp, viewportOptions } from '../../animations/variants'
 import { LayoutDashboard, Users, Folders, LogOut, ShieldAlert, CheckCircle, Trash2, Globe, BookOpen, Edit, Plus, UploadCloud } from 'lucide-react'
 import { 
   createAdmin, getApplications, updateApplicationStatus, deleteApplication, getAllAdmins,
-  fetchBlogs, createBlog, updateBlog, deleteBlog, seedBlogs 
+  fetchBlogs, createBlog, updateBlog, deleteBlog, seedBlogs, getAssessmentLeads, deleteAssessmentLead
 } from '../../services/api'
 import BlogEditorModal from '../../components/admin/BlogEditorModal'
 import { BLOGS as sampleBlogs } from '../../constants/blogs'
@@ -13,7 +13,7 @@ import { BLOGS as sampleBlogs } from '../../constants/blogs'
 export default function AdminDashboard() {
   const [admin, setAdmin] = useState(null)
   const [token, setToken] = useState(null)
-  const [activeTab, setActiveTab] = useState('overview') // 'overview' | 'applications' | 'admins' | 'blogs'
+  const [activeTab, setActiveTab] = useState('overview') // 'overview' | 'applications' | 'admins' | 'blogs' | 'leads'
   
   // Applications State
   const [applications, setApplications] = useState([])
@@ -29,6 +29,10 @@ export default function AdminDashboard() {
   const [isBlogModalOpen, setIsBlogModalOpen] = useState(false)
   const [editingBlog, setEditingBlog] = useState(null)
   const [seedingLoading, setSeedingLoading] = useState(false)
+
+  // Assessment Leads State
+  const [assessmentLeads, setAssessmentLeads] = useState([])
+  const [loadingLeads, setLoadingLeads] = useState(true)
 
   // Add Admin Form State
   const [newAdmin, setNewAdmin] = useState({ name: '', email: '', password: '', role: 'admin' })
@@ -46,6 +50,7 @@ export default function AdminDashboard() {
       setToken(tokenStr)
       fetchApps(tokenStr)
       fetchBlogsList()
+      fetchLeads(tokenStr)
       
       // Fetch admins list if user is a super admin
       if (parsedUser.role === 'super-admin') {
@@ -66,6 +71,31 @@ export default function AdminDashboard() {
       console.error("Failed to fetch applications:", error)
     } finally {
       setLoadingApps(false)
+    }
+  }
+
+  const fetchLeads = async (authToken) => {
+    setLoadingLeads(true)
+    try {
+      const res = await getAssessmentLeads(authToken)
+      if (res.success) {
+        setAssessmentLeads(res.leads)
+      }
+    } catch (error) {
+      console.error("Failed to fetch assessment leads:", error)
+    } finally {
+      setLoadingLeads(false)
+    }
+  }
+
+  const handleDeleteLead = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this assessment lead?")) return;
+    try {
+      await deleteAssessmentLead(id, token)
+      setAssessmentLeads(assessmentLeads.filter(lead => lead._id !== id))
+    } catch (error) {
+      console.error("Failed to delete assessment lead:", error)
+      alert("Failed to delete assessment lead")
     }
   }
 
@@ -435,8 +465,95 @@ export default function AdminDashboard() {
                   </table>
                 </div>
               </div>
+
+              {/* Assessment Leads Section within Applications Tab */}
+              <div className="mt-8 flex justify-between items-end">
+                <div>
+                  <h2 className="font-serif text-2xl font-bold text-navy">Business Assessment Leads</h2>
+                  <p className="text-sm text-navy/60 mt-2">Leads generated from the Business Health & Operational Leakage Assessment.</p>
+                </div>
+                <button 
+                  onClick={() => fetchLeads(token)}
+                  className="px-4 py-2 bg-white border border-gold/30 text-navy font-semibold text-sm rounded-lg hover:bg-gold/10 transition-colors"
+                >
+                  Refresh Leads
+                </button>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-sm border border-gold/20 overflow-hidden mt-4">
+                <div className="p-4 border-b border-gold/10 flex justify-between items-center bg-[#FAF8F5]/50">
+                  <h2 className="font-semibold text-navy text-sm">Assessment Submissions</h2>
+                  <span className="bg-gold/10 text-gold text-xs font-bold px-3 py-1 rounded-full">{assessmentLeads.length} Leads</span>
+                </div>
+                
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse min-w-[1000px]">
+                    <thead>
+                      <tr className="bg-navy/5 text-navy/50 text-[10px] uppercase tracking-wider font-bold">
+                        <th className="p-4 border-b border-gold/10">Date</th>
+                        <th className="p-4 border-b border-gold/10">Contact Details</th>
+                        <th className="p-4 border-b border-gold/10">Company & Scale</th>
+                        <th className="p-4 border-b border-gold/10">Health Score</th>
+                        <th className="p-4 border-b border-gold/10">Annual Leakage</th>
+                        <th className="p-4 border-b border-gold/10 text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gold/10 text-sm">
+                      {loadingLeads ? (
+                        <tr>
+                          <td colSpan="6" className="p-8 text-center text-navy/40">Loading assessment leads...</td>
+                        </tr>
+                      ) : assessmentLeads.length === 0 ? (
+                        <tr>
+                          <td colSpan="6" className="p-8 text-center text-navy/40">No assessment leads received yet.</td>
+                        </tr>
+                      ) : (
+                        assessmentLeads.map((lead) => (
+                          <tr key={lead._id} className="hover:bg-gold/5 transition-colors">
+                            <td className="p-4 text-navy/60 whitespace-nowrap">
+                              <div className="text-xs">{new Date(lead.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}</div>
+                            </td>
+                            <td className="p-4">
+                              <div className="font-semibold text-navy whitespace-nowrap">{lead.name}</div>
+                              <div className="text-[10px] text-navy/60 mt-1">📧 {lead.email}</div>
+                              <div className="text-[10px] text-navy/60 mt-1">📞 {lead.phone}</div>
+                            </td>
+                            <td className="p-4">
+                              <div className="font-medium text-navy/80 whitespace-nowrap">{lead.company || '-'}</div>
+                              <div className="text-xs text-navy/80 mt-1"><span className="text-navy/40 mr-1">Rev:</span> ₹{lead.revenue?.toLocaleString('en-IN')}</div>
+                              {lead.industry && <span className="bg-navy/5 px-2 py-0.5 rounded text-[10px] uppercase font-bold text-navy/50 mt-1 inline-block">{lead.industry}</span>}
+                            </td>
+                            <td className="p-4">
+                              <div className={`text-xl font-black ${lead.overallScore < 40 ? 'text-red-600' : lead.overallScore < 60 ? 'text-red-500' : lead.overallScore < 80 ? 'text-yellow-500' : 'text-green-500'}`}>
+                                {lead.overallScore}/100
+                              </div>
+                            </td>
+                            <td className="p-4">
+                              <div className="text-red-500 font-bold text-lg">
+                                ₹{lead.annualLeakage?.toLocaleString('en-IN')}
+                              </div>
+                              <div className="text-[10px] text-red-400 mt-1 uppercase font-bold">{lead.leakagePercentage}% Structural Leakage</div>
+                            </td>
+                            <td className="p-4 text-right">
+                              <button 
+                                onClick={() => handleDeleteLead(lead._id)}
+                                className="p-2 rounded-lg text-red-400 hover:text-red-600 hover:bg-red-50 transition-colors inline-block"
+                                title="Delete Lead"
+                              >
+                                <Trash2 size={18} />
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </motion.div>
           )}
+
+
 
           {/* TAB: BLOGS */}
           {activeTab === 'blogs' && (

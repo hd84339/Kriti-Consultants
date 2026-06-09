@@ -35,4 +35,10 @@ export const uploadImage = (formData, token) => API.post('/upload', formData, {
     'Content-Type': 'multipart/form-data' 
   } 
 })
+
+// Assessment Leads Endpoints
+export const submitAssessmentLead = (data) => API.post('/assessment-leads', data)
+export const getAssessmentLeads = (token) => API.get('/assessment-leads', { headers: { Authorization: `Bearer ${token}` } })
+export const deleteAssessmentLead = (id, token) => API.delete(`/assessment-leads/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+
 export default API
