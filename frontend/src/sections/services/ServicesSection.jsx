@@ -22,7 +22,7 @@ export default function ServicesSection() {
         </motion.div>
         {[
           { title: 'Business Consulting & Strategy', data: SERVICES.slice(0, 8) },
-          { title: 'HR & Recruitment Solutions', data: SERVICES.slice(8) }
+          { title: 'HR Consulting & Planning for Recruitment Strategies', data: SERVICES.slice(8) }
         ].map((section, idx) => (
           <div key={idx} className={idx === 0 ? "mb-16" : ""}>
             <div className="flex items-center gap-4 mb-8">

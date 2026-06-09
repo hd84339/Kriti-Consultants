@@ -16,7 +16,7 @@ export default function HeroSection() {
     for (let i = 0; i < 25; i++) {
       const p = document.createElement('div')
       p.className = 'particle'
-      p.style.cssText = `left:${Math.random()*100}%;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*15}s;width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;`
+      p.style.cssText = `left:${Math.random() * 100}%;animation-duration:${8 + Math.random() * 12}s;animation-delay:${Math.random() * 15}s;width:${1 + Math.random() * 2}px;height:${1 + Math.random() * 2}px;`
       container.appendChild(p)
     }
     return () => { container.innerHTML = '' }
@@ -53,7 +53,7 @@ export default function HeroSection() {
           <motion.h1 variants={staggerItem} className="font-serif font-bold leading-[1.1] tracking-tight mb-6" style={{ fontSize: 'clamp(2.8rem, 5vw, 4.5rem)' }}>
             Build A Business That Runs Without Constant <em className="text-gold not-italic">Founder Intervention.</em>
           </motion.h1>
-          <motion.p variants={staggerItem} className="text-white/60 text-lg leading-relaxed font-light mb-8 max-w-xl">
+          <motion.p variants={staggerItem} className="text-slate-100 text-lg leading-relaxed font-light mb-8 max-w-xl">
             We help business owners eliminate operational chaos through SOPs, KRAs, KPIs, PMS systems and strategic consulting frameworks.
           </motion.p>
           <motion.div variants={staggerItem} className="flex flex-wrap gap-4 mb-12">
@@ -61,7 +61,7 @@ export default function HeroSection() {
             <button onClick={() => openModal()} className="btn-secondary">Book Strategy Call</button>
           </motion.div>
           <motion.div variants={staggerItem} className="flex gap-10">
-            {[{val:'20+',label:'Years Expertise'},{val:'100+',label:'Businesses Guided'},{val:'98%',label:'Client Retention'}].map((s) => (
+            {[{ val: '20+', label: 'Years Expertise' }, { val: '100+', label: 'Businesses Guided' }, { val: '98%', label: 'Client Retention' }].map((s) => (
               <div key={s.label} className="text-center">
                 <strong className="block font-serif text-3xl font-bold text-gold">{s.val}</strong>
                 <span className="text-white/40 text-xs tracking-wider uppercase mt-1 block">{s.label}</span>
